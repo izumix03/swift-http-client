@@ -7,8 +7,10 @@ public enum HttpClientError: Error {
 }
 
 public protocol HttpClientConfigure {
+  func get(_ path: String) -> HttpClientSetter
   func post(_ path: String) -> HttpClientSetter
   func put(_ path: String) -> HttpClientSetter
+  func delete(_ path: String) -> HttpClientSetter
 }
 
 public protocol HttpClientSetter {
@@ -39,6 +41,12 @@ open class HttpClient:
     url = URL(string: _url)!
   }
 
+  public func get(_ path: String) -> HttpClientSetter {
+    url = url.appendingPathComponent(path)
+    method = .GET
+    return self
+  }
+
   public func post(_ path: String) -> HttpClientSetter {
     url = url.appendingPathComponent(path)
     method = .POST
@@ -48,6 +56,12 @@ open class HttpClient:
   public func put(_ path: String) -> HttpClientSetter {
     url = url.appendingPathComponent(path)
     method = .PUT
+    return self
+  }
+
+  public func delete(_ path: String) -> HttpClientSetter {
+    url = url.appendingPathComponent(path)
+    method = .DELETE
     return self
   }
 
