@@ -4,20 +4,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-http-client",
-    products: [
-        .library(
-            name: "HttpClient",
-            targets: ["HttpClient"]),
-    ],
-    dependencies: [
-    ],
-    targets: [
-        .target(
-            name: "HttpClient",
-            dependencies: []),
-        .testTarget(
-            name: "HttpClientTests",
-            dependencies: ["HttpClient"]),
-    ]
+  name: "swift-http-client",
+  products: [
+    .library(
+      name: "HttpClient",
+      targets: ["HttpClient"])
+  ],
+  dependencies: [],
+  targets: [
+    .target(
+      name: "HttpClient",
+      dependencies: []),
+    .testTarget(
+      name: "HttpClientTests",
+      dependencies: ["HttpClient"]),
+  ]
 )
