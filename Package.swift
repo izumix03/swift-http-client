@@ -7,17 +7,17 @@ let package = Package(
     name: "swift-http-client",
     products: [
         .library(
-            name: "swift-http-client",
-            targets: ["swift-http-client"]),
+            name: "HttpClient",
+            targets: ["HttpClient"]),
     ],
     dependencies: [
     ],
     targets: [
         .target(
-            name: "swift-http-client",
+            name: "HttpClient",
             dependencies: []),
         .testTarget(
-            name: "swift-http-clientTests",
-            dependencies: ["swift-http-client"]),
+            name: "HttpClientTests",
+            dependencies: ["HttpClient"]),
     ]
 )
